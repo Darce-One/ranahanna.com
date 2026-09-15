@@ -17,18 +17,18 @@ To update copy, edit `index.html` in any text editor and refresh the browser. To
 ## Publishing a blog post
 
 1. Add or edit a Markdown file in `blogs/`, using the two included templates as a guide.
-2. Run `node scripts/build-blogs.mjs` from the project folder.
-3. Commit the Markdown file, `data/blogs.json`, and the generated file in `pages/blogs/` together.
+2. Commit and push the Markdown file to `main`.
+3. The deployment workflow generates the blog archive and individual pages before publishing the static site.
 
-The archive automatically orders posts by date. The build script has no package dependencies.
+The archive automatically orders posts by date. Generated files in `data/blogs.json` and `pages/blogs/` are intentionally ignored by Git. For a local preview, run `node scripts/build-blogs.mjs` before starting the local server.
 
 ## Publishing with GitHub Pages
 
 1. Push this repository to GitHub.
-2. In the repository’s **Settings → Pages**, choose **Deploy from a branch**.
-3. Select the `main` branch and the `/ (root)` folder, then save.
+2. In the repository’s **Settings → Pages**, choose **GitHub Actions** as the publishing source.
+3. Push to `main`, then wait for the **Deploy GitHub Pages** workflow to finish in the Actions tab.
 
-GitHub Pages will publish `index.html` automatically. The included `.nojekyll` file ensures GitHub serves the site as-is.
+The workflow runs the Markdown generator, then deploys the resulting static HTML, CSS, JavaScript, and JSON. Visitors never run the generator.
 
 ## Local preview
 
