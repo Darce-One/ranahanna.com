@@ -61,19 +61,6 @@ h2 { margin-bottom: 1.7rem; font-size: clamp(2.6rem, 5vw, 4.6rem); }
 .button { display: inline-flex; gap: .7rem; align-items: center; margin-top: .8rem; padding: .85rem 1.05rem; color: white; background: var(--ink); font: 500 .76rem/1 var(--mono); letter-spacing: .06em; text-decoration: none; text-transform: uppercase; transition: background .2s ease; }
 .button:hover, .button:focus-visible { background: var(--accent); }
 
-.writing { padding-block: 7rem; border-top: 1px solid var(--line); }
-.writing-grid, .about-grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: clamp(3rem, 10vw, 11rem); }
-.writing-grid h2, .about-grid h2 { margin: 0; }
-.writing-grid > div, .prose { color: var(--ink-soft); }
-
-.about { padding-block: 7rem; background: var(--ink); color: var(--paper); }
-.about.section-shell { width: 100%; padding-inline: max(2rem, calc((100% - 1120px) / 2)); }
-.about .section-label { color: rgba(245, 242, 235, .7); }
-.about .section-label span { color: #e77a63; }
-.about-grid .prose { color: rgba(245, 242, 235, .78); }
-
-.contact { padding-block: 8.5rem; }
-.contact h2 { max-width: 13em; }
 .contact-links { display: flex; flex-wrap: wrap; gap: 1rem 2.4rem; }
 .contact-links a { padding-bottom: .4rem; border-bottom: 1px solid var(--line); font: 500 .9rem/1 var(--mono); text-decoration: none; }
 .contact-links a:hover, .contact-links a:focus-visible { color: var(--accent); border-color: var(--accent); }
@@ -93,7 +80,6 @@ h2 { margin-bottom: 1.7rem; font-size: clamp(2.6rem, 5vw, 4.6rem); }
 .large-link { display: inline-flex; gap: 1rem; padding-bottom: .6rem; border-bottom: 2px solid var(--ink); color: var(--ink); font: clamp(2.1rem, 5vw, 4.2rem)/1.1 var(--serif); letter-spacing: -.05em; text-decoration: none; }
 .large-link:hover, .large-link:focus-visible { color: var(--accent); border-color: var(--accent); }
 .reading-note { margin: 2rem 0 0; color: var(--ink-soft); }
-.about-page { padding-bottom: 8rem; }
 .about-page .portrait-frame { margin: 0; }
 .contact-page { min-height: calc(100vh - 13.5rem); padding-block: clamp(5rem, 12vw, 10rem); }
 .contact-page h1 { max-width: 11.5em; }
@@ -116,10 +102,7 @@ h2 { margin-bottom: 1.7rem; font-size: clamp(2.6rem, 5vw, 4.6rem); }
   .hero .portrait-frame { width: min(88%, 22rem); margin-inline: auto; }
   .hero .portrait-frame img { aspect-ratio: 3 / 4; max-height: 25rem; object-fit: cover; object-position: center 18%; }
   .hero-statement .statement-mark { font-size: 4.8rem; }
-  .writing, .about { padding-block: 5rem; }
-  .writing-grid, .about-grid, .about-page { grid-template-columns: 1fr; gap: 2.5rem; }
-  .writing-grid h2, .about-grid h2 { font-size: clamp(2.55rem, 11vw, 4rem); }
-  .contact { padding-block: 6rem; }
+  .about-page { grid-template-columns: 1fr; gap: 2.5rem; }
   .home-links { padding-bottom: 5rem; }
   .page-hero { padding-block: 4.5rem 3.5rem; }
   .about-page { padding-bottom: 5rem; }
