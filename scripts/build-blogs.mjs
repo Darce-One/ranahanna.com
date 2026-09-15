@@ -72,7 +72,7 @@ function inlineMarkdown(text) {
     .replace(/`([^`]+)`/g, '<code>$1</code>')
     .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
     .replace(/\*([^*]+)\*/g, '<em>$1</em>')
-    .replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g, '<a href="$2" target="_blank" rel="noreferrer">$1</a>');
+    .replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g, (match, label, href) => `<a href="${href.replaceAll('\\&amp;', '&amp;')}" target="_blank" rel="noreferrer">${label}</a>`);
 }
 
 function renderMarkdown(markdown) {
@@ -128,14 +128,17 @@ function renderMarkdown(markdown) {
   return blocks.join('\n');
 }
 
-function postPage({ title, subtitle, thumbnail, date, body }) {
+function postPage({ title, subtitle, thumbnail, thumbnailCredit, date, body }) {
   const safeTitle = escapeHtml(title);
   const subtitleMarkup = subtitle
     ? `<p class="post-subtitle">${escapeHtml(subtitle)}</p>`
     : '';
   const thumbnailImage = thumbnail ? imageMarkup(title, thumbnail, '../../') : null;
+  const thumbnailCreditMarkup = thumbnailCredit
+    ? `<figcaption class="thumbnail-credit">${inlineMarkdown(thumbnailCredit)}</figcaption>`
+    : '';
   const thumbnailMarkup = thumbnailImage
-    ? `<figure class="post-image post-thumbnail">${thumbnailImage}</figure>`
+    ? `<figure class="post-image post-thumbnail">${thumbnailImage}${thumbnailCreditMarkup}</figure>`
     : '';
   return `<!doctype html>
 <html lang="en">
