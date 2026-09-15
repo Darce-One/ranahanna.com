@@ -73,6 +73,7 @@ h2 { margin-bottom: 1.7rem; font-size: clamp(2.6rem, 5vw, 4.6rem); }
 .page-hero h1 { max-width: 11em; margin-bottom: 1.5rem; }
 .page-hero > p:last-child, .contact-page > p:not(.eyebrow) { max-width: 37rem; color: var(--ink-soft); font-size: 1.15rem; }
 .about-page { display: grid; grid-template-columns: minmax(14rem, .7fr) minmax(0, 1fr); gap: clamp(3rem, 10vw, 9rem); align-items: start; padding-bottom: 8rem; }
+.about-page .about-intro { max-width: 34rem; }
 .prose { color: var(--ink-soft); }
 .prose .deck { color: var(--ink); }
 .reading { padding-block: 5rem 9rem; border-top: 1px solid var(--line); }
@@ -117,6 +118,20 @@ h2 { margin-bottom: 1.7rem; font-size: clamp(2.6rem, 5vw, 4.6rem); }
 .about-page .portrait-frame { margin: 0; }
 .contact-page { min-height: calc(100vh - 13.5rem); padding-block: clamp(5rem, 12vw, 10rem); }
 .contact-page h1 { max-width: 11.5em; }
+.contact-form { width: min(100%, 42rem); margin-top: 3rem; padding-top: 2.25rem; border-top: 1px solid var(--line); }
+.contact-form__field { display: grid; gap: .55rem; margin-bottom: 1.35rem; }
+.contact-form label { font: 500 .73rem/1 var(--mono); letter-spacing: .09em; text-transform: uppercase; }
+.contact-form input, .contact-form textarea { width: 100%; border: 1px solid var(--line); border-radius: 0; padding: .8rem .9rem; color: var(--ink); background: transparent; font: 1rem/1.45 var(--sans); }
+.contact-form textarea { resize: vertical; min-height: 10rem; }
+.contact-form input:focus, .contact-form textarea:focus { outline: 2px solid var(--accent); outline-offset: 2px; border-color: var(--accent); }
+.contact-form input[aria-invalid="true"], .contact-form textarea[aria-invalid="true"] { border-color: var(--accent); }
+.contact-form__error, .contact-form__status { color: var(--accent); font: .72rem/1.45 var(--mono); }
+.contact-form__error:empty, .contact-form__status p:empty { display: none; }
+.contact-form__status { margin: 1.25rem 0 0; }
+.contact-form__status p { margin: 0; text-align: left; }
+.contact-form__submit { display: inline-flex; gap: .7rem; align-items: center; margin-top: 1.5rem; padding: .85rem 1.05rem; border: 0; color: white; background: var(--ink); cursor: pointer; font: 500 .76rem/1 var(--mono); letter-spacing: .06em; text-transform: uppercase; transition: background .2s ease, opacity .2s ease; }
+.contact-form__submit:hover, .contact-form__submit:focus-visible { background: var(--accent); }
+.contact-form__submit:disabled { cursor: wait; opacity: .65; }
 .contact-page .contact-links { margin-top: 3rem; }
 
 @media (max-width: 720px) {
