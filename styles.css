@@ -85,16 +85,18 @@ h2 { margin-bottom: 1.7rem; font-size: clamp(2.6rem, 5vw, 4.6rem); }
 .article-list .article-arrow { color: var(--accent); font-size: 1.15rem; }
 .article-list a:hover h2, .article-list a:focus-visible h2 { color: var(--accent); }
 .list-empty { margin: 1.5rem 0 0; color: var(--ink-soft); }
-.post { max-width: 43rem; padding-block: clamp(5rem, 12vw, 10rem) 8rem; }
+.post { max-width: 58rem; padding-block: clamp(5rem, 12vw, 10rem) 8rem; }
 .post-header { padding-bottom: clamp(2.5rem, 6vw, 4.5rem); border-bottom: 1px solid var(--line); }
 .post-header h1 { max-width: 12em; margin-bottom: 1.5rem; }
+.post-header--with-subtitle h1 { margin-bottom: .65rem; }
+.post-subtitle { margin: 0 0 1.5rem; color: var(--ink-soft); font: clamp(1.1rem, 1.65vw, 1.32rem)/1.35 var(--serif); }
 .post-date { margin: 0; color: var(--ink-soft); font: .72rem/1.3 var(--mono); letter-spacing: .08em; text-transform: uppercase; }
 .post-body { padding-top: clamp(2.5rem, 6vw, 4.5rem); color: var(--ink-soft); font-family: var(--serif); font-size: clamp(1.12rem, 1.7vw, 1.28rem); }
-.post-body > * { max-width: 38rem; }
+.post-body > * { max-width: 56rem; }
 .post-body h2, .post-body h3 { margin: 2.5rem 0 1rem; color: var(--ink); }
 .post-body h2 { font-size: clamp(2rem, 4vw, 3.1rem); }
 .post-body h3 { font-size: clamp(1.45rem, 3vw, 2rem); }
-.post-body p, .post-body li { text-align: left; }
+.post-body p, .post-body li { text-align: justify; hyphens: auto; }
 .post-body a { color: var(--accent); text-underline-offset: .16em; }
 .post-body blockquote { margin: 2rem 0; padding-left: 1.25rem; border-left: 2px solid var(--accent); color: var(--ink); font-size: 1.15em; font-style: italic; }
 .post-body ul, .post-body ol { margin: 0 0 1.5rem; padding-left: 1.4rem; }
