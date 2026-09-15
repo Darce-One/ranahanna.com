@@ -6,6 +6,7 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const blogDirectory = path.join(root, 'blogs');
 const outputDirectory = path.join(root, 'pages', 'blogs');
 const indexFile = path.join(root, 'data', 'blogs.json');
+const localImagePath = /^[a-zA-Z0-9][a-zA-Z0-9._/-]*$/;
 
 const escapeHtml = (value) => String(value)
   .replaceAll('&', '&amp;')
@@ -20,6 +21,19 @@ const displayDate = (value) => {
     month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC',
   }).format(new Date(`${value}T00:00:00Z`));
 };
+
+function imageSource(value, prefix) {
+  if (/^https?:\/\/[^\s]+$/.test(value)) return value;
+  if (!localImagePath.test(value)) return null;
+  return `${prefix}assets/blog-images/${value}`;
+}
+
+function imageMarkup(alt, source, prefix, className = '') {
+  const src = imageSource(source, prefix);
+  if (!src) return null;
+  const classAttribute = className ? ` class="${className}"` : '';
+  return `<img${classAttribute} src="${escapeHtml(src)}" alt="${escapeHtml(alt)}" loading="lazy" />`;
+}
 
 function parsePost(source, filename) {
   const match = source.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n?([\s\S]*)$/);
@@ -44,8 +58,17 @@ function parsePost(source, filename) {
 }
 
 function inlineMarkdown(text) {
-  const escaped = escapeHtml(text);
+  const images = [];
+  const tokenized = text.replace(/!\[([^\]]*)\]\((https?:\/\/[^\s)]+|[a-zA-Z0-9][a-zA-Z0-9._/-]*)\)/g, (match, alt, source) => {
+    const markup = imageMarkup(alt, source, '../../');
+    if (!markup) return match;
+    const token = `@@BLOG_IMAGE_${images.length}@@`;
+    images.push(markup);
+    return token;
+  });
+  const escaped = escapeHtml(tokenized);
   return escaped
+    .replace(/@@BLOG_IMAGE_(\d+)@@/g, (match, index) => images[index])
     .replace(/`([^`]+)`/g, '<code>$1</code>')
     .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
     .replace(/\*([^*]+)\*/g, '<em>$1</em>')
@@ -74,12 +97,17 @@ function renderMarkdown(markdown) {
     const quote = line.match(/^>\s*(.+)$/);
     const unordered = line.match(/^[-*]\s+(.+)$/);
     const ordered = line.match(/^\d+\.\s+(.+)$/);
+    const image = line.match(/^!\[([^\]]*)\]\((https?:\/\/[^\s)]+|[a-zA-Z0-9][a-zA-Z0-9._/-]*)\)$/);
 
     if (!line.trim()) { flushParagraph(); flushList(); continue; }
     if (heading) {
       flushParagraph(); flushList();
       const level = heading[1].length;
       blocks.push(`<h${level}>${inlineMarkdown(heading[2])}</h${level}>`);
+    } else if (image) {
+      flushParagraph(); flushList();
+      const markup = imageMarkup(image[1], image[2], '../../');
+      if (markup) blocks.push(`<figure class="post-image">${markup}</figure>`);
     } else if (quote) {
       flushParagraph(); flushList();
       blocks.push(`<blockquote><p>${inlineMarkdown(quote[1])}</p></blockquote>`);
@@ -100,10 +128,14 @@ function renderMarkdown(markdown) {
   return blocks.join('\n');
 }
 
-function postPage({ title, subtitle, date, body }) {
+function postPage({ title, subtitle, thumbnail, date, body }) {
   const safeTitle = escapeHtml(title);
   const subtitleMarkup = subtitle
     ? `<p class="post-subtitle">${escapeHtml(subtitle)}</p>`
+    : '';
+  const thumbnailImage = thumbnail ? imageMarkup(title, thumbnail, '../../') : null;
+  const thumbnailMarkup = thumbnailImage
+    ? `<figure class="post-image post-thumbnail">${thumbnailImage}</figure>`
     : '';
   return `<!doctype html>
 <html lang="en">
@@ -115,7 +147,7 @@ function postPage({ title, subtitle, date, body }) {
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header"><a class="wordmark" href="../../index.html" aria-label="Rana Hanna home">Rana Hanna<span>.</span></a><button class="menu-button" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="site-nav"><span aria-hidden="true"></span><span aria-hidden="true"></span></button><nav id="site-nav" class="site-nav" aria-label="Main navigation"><a href="../../index.html">Home</a><a href="../birdsintherain.html">Novel</a><a href="../press.html">In the Press</a><a href="../blog.html" aria-current="page">Blog</a><a href="../about.html">About</a><a href="../contact.html">Contact</a></nav></header>
-    <main id="main"><article class="post section-shell"><header class="post-header${subtitle ? ' post-header--with-subtitle' : ''}"><p class="eyebrow">Blog</p><h1>${safeTitle}</h1>${subtitleMarkup}<p class="post-date">${escapeHtml(displayDate(date))}</p></header><div class="post-body">${renderMarkdown(body)}</div><a class="back-link" href="../blog.html">← All posts</a></article></main>
+    <main id="main"><article class="post section-shell"><header class="post-header${subtitle ? ' post-header--with-subtitle' : ''}"><p class="eyebrow">Blog</p><h1>${safeTitle}</h1>${subtitleMarkup}<p class="post-date">${escapeHtml(displayDate(date))}</p></header><div class="post-body">${thumbnailMarkup}${renderMarkdown(body)}</div><a class="back-link" href="../blog.html">← All posts</a></article></main>
     <footer class="site-footer section-shell"><a class="wordmark" href="../../index.html">Rana Hanna<span>.</span></a><p>© <span id="year"></span> Rana Hanna. All rights reserved.</p></footer><script src="../../script.js"></script>
   </body>
 </html>`;
@@ -137,6 +169,7 @@ const posts = await Promise.all(files.map(async (filename) => {
     title: post.title,
     date: displayDate(post.date),
     description: post.description,
+    thumbnail: post.thumbnail ? imageSource(post.thumbnail, '../') : undefined,
     url: `blogs/${slug}.html`,
     sortDate: post.date,
   };

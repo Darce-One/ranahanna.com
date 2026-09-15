@@ -1,6 +1,7 @@
 ---
 title: Oh mother, know thyself.
 date: 2017-11-14
+thumbnail: mother-know-thyself.webp
 ---
 
 I never liked children. They’re noisy, they move too much, their hands are either up their nose, or up their butt or in their mouth, they eat sloppily, their breath always reeks of chocolate, they touch themselves in public and they kick the back of your chair in an airplane. There really is very little to like. And I really am not sold on this innocence shit, I have three boys myself and I know they are essentially, at their core, deviant creatures who are out to make you regret you ever thought, in your selfish egotism, to procreate, whether willfully or by accident.

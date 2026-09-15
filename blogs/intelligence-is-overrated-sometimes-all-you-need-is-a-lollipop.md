@@ -3,6 +3,7 @@ title: Intelligence is overrated – sometimes all you need is a lollipop
 date: 2017-01-28
 description: Life lessons learned from Candy Crush
 subtitle: Life lessons learned from Candy Crush
+thumbnail: candy.webp
 ---
 
 It was night and eerily quiet except for the occasional thunder and the pitter-patter of rain on my window. I was in my office, playing Candy Crush. For the past few months, I had been obsessed with becoming more intelligent: to learn how to strategize, to solve problems. I wanted to train my brain to think harder, for longer, to think more like a chess master or a world-class bridge player: seeing the end at the beginning and planning for it.

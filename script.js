@@ -76,7 +76,7 @@ if (blogList) {
     .then((posts) => {
       if (!Array.isArray(posts)) throw new Error('Blog posts must be an array');
 
-      posts.forEach(({ title, date, description, url }) => {
+      posts.forEach(({ title, date, description, thumbnail, url }) => {
         if (!title || !url) return;
 
         const item = document.createElement('li');
@@ -94,6 +94,14 @@ if (blogList) {
         arrow.textContent = '→';
 
         copy.append(heading, summary);
+        if (thumbnail) {
+          const thumbnailImage = document.createElement('img');
+          thumbnailImage.className = 'article-thumbnail';
+          thumbnailImage.src = thumbnail;
+          thumbnailImage.alt = '';
+          thumbnailImage.loading = 'lazy';
+          postLink.append(thumbnailImage);
+        }
         postLink.append(copy, arrow);
         item.append(postLink);
         blogList.append(item);
