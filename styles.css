@@ -33,13 +33,11 @@ img { display: block; max-width: 100%; }
 .hero { min-height: min(710px, calc(100vh - 6.75rem)); display: grid; grid-template-columns: 1.05fr .95fr; align-items: center; gap: clamp(3rem, 8vw, 9rem); padding-block: 4.5rem; }
 .eyebrow { margin: 0 0 1.4rem; color: var(--accent); font: 500 .73rem/1.2 var(--mono); letter-spacing: .1em; text-transform: uppercase; }
 h1, h2, p { margin-top: 0; }
+p { text-align: justify; hyphens: auto; }
 h1, h2 { font-family: var(--serif); font-weight: 500; letter-spacing: -.05em; line-height: 1.05; }
 h1 { max-width: 8.7em; margin-bottom: 1.5rem; font-size: clamp(3rem, 6.4vw, 5.8rem); }
 h2 { margin-bottom: 1.7rem; font-size: clamp(2.6rem, 5vw, 4.6rem); }
-.hero-intro { max-width: 29rem; margin-bottom: 2rem; color: var(--ink-soft); font-size: 1.15rem; }
-.text-link { display: inline-flex; gap: .6rem; align-items: baseline; padding-bottom: .28rem; border-bottom: 1px solid var(--ink); font-size: .95rem; font-weight: 600; text-decoration: none; }
-.text-link:hover, .text-link:focus-visible { color: var(--accent); border-color: var(--accent); }
-.text-link span, .button span, .contact-links span { color: var(--accent); }
+.button span, .contact-links span { color: var(--accent); }
 .portrait-frame { position: relative; margin: 0; padding: 1rem 1rem 2.5rem; background: var(--paper-deep); }
 .portrait-frame::before { content: ""; position: absolute; z-index: -1; top: 2.2rem; right: -1.4rem; bottom: -1.4rem; left: 2.2rem; border: 1px solid var(--accent); }
 .portrait-frame img { width: 100%; max-height: 34rem; object-fit: cover; object-position: center top; }
@@ -57,15 +55,9 @@ h2 { margin-bottom: 1.7rem; font-size: clamp(2.6rem, 5vw, 4.6rem); }
 .home-links b { color: var(--accent); font-weight: 400; text-align: right; }
 .home-links a:hover strong, .home-links a:focus-visible strong { color: var(--accent); }
 
-.novel { padding-block: 7rem; border-top: 1px solid var(--line); }
 .section-label { display: flex; gap: 1rem; margin-bottom: 3.7rem; font: .73rem/1 var(--mono); letter-spacing: .1em; text-transform: uppercase; }
 .section-label span { color: var(--accent); }
-.novel-grid { display: grid; grid-template-columns: minmax(15rem, .72fr) minmax(0, 1fr); gap: clamp(3rem, 10vw, 9rem); align-items: center; }
-.book-frame { width: min(100%, 25rem); margin: 0 auto; padding: .75rem; background: #d6dde0; box-shadow: 1.25rem 1.25rem 0 var(--ink); }
-.book-frame img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; }
-.novel-copy h2 { margin-bottom: 1.25rem; }
 .deck { max-width: 31rem; margin-bottom: 1.8rem; color: var(--ink); font: 1.28rem/1.45 var(--serif); }
-.novel-copy > p:not(.eyebrow):not(.deck) { max-width: 37rem; color: var(--ink-soft); }
 .button { display: inline-flex; gap: .7rem; align-items: center; margin-top: .8rem; padding: .85rem 1.05rem; color: white; background: var(--ink); font: 500 .76rem/1 var(--mono); letter-spacing: .06em; text-decoration: none; text-transform: uppercase; transition: background .2s ease; }
 .button:hover, .button:focus-visible { background: var(--accent); }
 
@@ -93,8 +85,7 @@ h2 { margin-bottom: 1.7rem; font-size: clamp(2.6rem, 5vw, 4.6rem); }
 .page-hero { max-width: 58rem; padding-block: clamp(5rem, 12vw, 10rem) clamp(3.5rem, 7vw, 6rem); }
 .page-hero h1 { max-width: 11em; margin-bottom: 1.5rem; }
 .page-hero > p:last-child, .contact-page > p:not(.eyebrow) { max-width: 37rem; color: var(--ink-soft); font-size: 1.15rem; }
-.novel-detail, .about-page { display: grid; grid-template-columns: minmax(14rem, .7fr) minmax(0, 1fr); gap: clamp(3rem, 10vw, 9rem); align-items: start; padding-bottom: 8rem; }
-.novel-detail .book-frame { margin: 0; }
+.about-page { display: grid; grid-template-columns: minmax(14rem, .7fr) minmax(0, 1fr); gap: clamp(3rem, 10vw, 9rem); align-items: start; padding-bottom: 8rem; }
 .prose { color: var(--ink-soft); }
 .prose .deck { color: var(--ink); }
 .reading { padding-block: 5rem 9rem; border-top: 1px solid var(--line); }
@@ -125,14 +116,13 @@ h2 { margin-bottom: 1.7rem; font-size: clamp(2.6rem, 5vw, 4.6rem); }
   .hero .portrait-frame { width: min(88%, 22rem); margin-inline: auto; }
   .hero .portrait-frame img { aspect-ratio: 3 / 4; max-height: 25rem; object-fit: cover; object-position: center 18%; }
   .hero-statement .statement-mark { font-size: 4.8rem; }
-  .novel, .writing, .about { padding-block: 5rem; }
-  .novel-grid, .writing-grid, .about-grid, .novel-detail, .about-page { grid-template-columns: 1fr; gap: 2.5rem; }
-  .book-frame { margin-left: 0; width: min(76%, 20rem); }
+  .writing, .about { padding-block: 5rem; }
+  .writing-grid, .about-grid, .about-page { grid-template-columns: 1fr; gap: 2.5rem; }
   .writing-grid h2, .about-grid h2 { font-size: clamp(2.55rem, 11vw, 4rem); }
   .contact { padding-block: 6rem; }
   .home-links { padding-bottom: 5rem; }
   .page-hero { padding-block: 4.5rem 3.5rem; }
-  .novel-detail, .about-page { padding-bottom: 5rem; }
+  .about-page { padding-bottom: 5rem; }
   .reading { padding-block: 4rem 6rem; }
   .contact-page { min-height: auto; padding-block: 5rem; }
   .site-footer { flex-direction: column; padding-block: 2rem; }
