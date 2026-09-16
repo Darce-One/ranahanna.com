@@ -24,18 +24,26 @@ jobs:
       - name: Set up Node
         uses: actions/setup-node@v6
         with:
-          node-version: 22
+          node-version: 24
 
-      - name: Generate blog pages
-        run: node scripts/build-blogs.mjs
+      - name: Build static site
+        run: node scripts/build-site.mjs
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
 
+      - name: Package static site
+        run: |
+          tar --dereference --hard-dereference --directory _site --exclude=.git --exclude=.github -cvf "$RUNNER_TEMP/artifact.tar" .
+          gzip --keep "$RUNNER_TEMP/artifact.tar"
+
       - name: Upload static site
-        uses: actions/upload-pages-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
-          path: .
+          name: github-pages
+          path: ${{ runner.temp }}/artifact.tar.gz
+          retention-days: 1
+          if-no-files-found: error
 
   deploy:
     needs: build

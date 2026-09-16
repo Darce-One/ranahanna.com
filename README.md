@@ -49,7 +49,7 @@ thumbnailCredit: Photo by [Photographer](https://example.com) on [Unsplash](http
 2. In the repository’s **Settings → Pages**, choose **GitHub Actions** as the publishing source.
 3. Push to `main`, then wait for the **Deploy GitHub Pages** workflow to finish in the Actions tab.
 
-The workflow runs the Markdown generator, then deploys the resulting static HTML, CSS, JavaScript, and JSON. Visitors never run the generator.
+The workflow builds a complete `_site/` directory, including the generated blog archive and post pages, then deploys that directory. Visitors never run the generator.
 
 ## Local preview
 
