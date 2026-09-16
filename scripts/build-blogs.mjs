@@ -3,12 +3,9 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const outputRoot = process.env.BLOG_OUTPUT_ROOT
-  ? path.resolve(process.env.BLOG_OUTPUT_ROOT)
-  : root;
 const blogDirectory = path.join(root, 'blogs');
-const outputDirectory = path.join(outputRoot, 'pages', 'blogs');
-const indexFile = path.join(outputRoot, 'data', 'blogs.json');
+const outputDirectory = path.join(root, 'pages', 'blogs');
+const indexFile = path.join(root, 'data', 'blogs.json');
 const localImagePath = /^[a-zA-Z0-9][a-zA-Z0-9._/-]*$/;
 
 const escapeHtml = (value) => String(value)
