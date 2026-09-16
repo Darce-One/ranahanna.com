@@ -1,10 +1,10 @@
 [
   {
-    "title": "Rana Hanna sort un premier roman qui fait mal",
-    "author": "Rayanne Tawil",
-    "publisher": "L'Orient le Jour",
-    "date": "28/01/2026",
-    "link": "https://www.lorientlejour.com/article/1492911/minuit-rana-hanna-sort-un-premier-roman-qui-fait-mal.html"
+    "title": "Lebanon, Where Ceasefires Pave the Way to War",
+    "author": "Rana Hanna",
+    "publisher": "New York Times",
+    "date": "27/05/2026",
+    "link": "https://www.nytimes.com/2026/05/27/opinion/lebanon-israel-hezbollah-cease-fire.html"
   },
   {
     "title": "From shortcut to short circuit: Lebanon’s permanent workarounds",
@@ -14,11 +14,25 @@
     "link": "https://today.lorientlejour.com/article/1504769/from-shortcut-to-short-circuit-lebanons-permanent-workarounds.html"
   },
   {
-    "title": "Lebanon, Where Ceasefires Pave the Way to War",
+    "title": "Podcast interview (French)",
     "author": "Rana Hanna",
-    "publisher": "New York Times",
-    "date": "27/05/2026",
-    "link": "https://www.nytimes.com/2026/05/27/opinion/lebanon-israel-hezbollah-cease-fire.html"
+    "publisher": "Kantara",
+    "date": "24/04/2026",
+    "link": "https://open.spotify.com/episode/61p6i4aaV38wIFnprQ5Shi"
+  },
+  {
+    "title": "Rana Hanna sort un premier roman qui fait mal (French)",
+    "author": "Rayanne Tawil",
+    "publisher": "L'Orient le Jour",
+    "date": "28/01/2026",
+    "link": "https://www.lorientlejour.com/article/1492911/minuit-rana-hanna-sort-un-premier-roman-qui-fait-mal.html"
+  },
+  {
+    "title": "Radio interview (Arabic)",
+    "author": "Rana Hanna",
+    "publisher": "RMC",
+    "date": "20/01/2026",
+    "link": "https://www.mc-doualiya.com/%D8%A8%D8%B1%D8%A7%D9%85%D8%AC/%D9%83%D8%A7%D9%81%D9%8A%D9%87-%D8%B4%D9%88/20260217-%D8%B7%D9%8A%D9%88%D8%B1%D9%8C-%D9%81%D9%8A-%D8%A7%D9%84%D9%85%D8%B7%D8%B1-%D8%AD%D9%8A%D9%86-%D9%8A%D9%83%D8%AA%D8%A8-%D8%A7%D9%84%D9%81%D9%82%D8%AF-%D8%A7%D8%B3%D9%85%D9%87-%D8%B9%D9%84%D9%89-%D8%B3%D9%85%D8%A7%D8%A1-%D8%A7%D9%84%D9%88%D8%B7%D9%86"
   },
   {
     "title": "Televised interview (Arabic)",
@@ -28,17 +42,52 @@
     "link": "https://www.mtv.com.lb/vod/en/video/256996"
   },
   {
-    "title": "Podcast interview",
+    "title": "Gender (in)equalities",
     "author": "Rana Hanna",
-    "publisher": "Kantara",
-    "date": "24/04/2026",
-    "link": "https://open.spotify.com/episode/61p6i4aaV38wIFnprQ5Shi"
+    "publisher": "Executive Magazine",
+    "date": "03/07/2008",
+    "link": "https://www.executive-magazine.com/opinion/comment/gender-inequalities"
   },
   {
-    "title": "Radio interview",
+    "title": "Who will you be (with) this holiday season?",
     "author": "Rana Hanna",
-    "publisher": "RMC",
-    "date": "20/01/2026",
-    "link": "https://www.mc-doualiya.com/%D8%A8%D8%B1%D8%A7%D9%85%D8%AC/%D9%83%D8%A7%D9%81%D9%8A%D9%87-%D8%B4%D9%88/20260217-%D8%B7%D9%8A%D9%88%D8%B1%D9%8C-%D9%81%D9%8A-%D8%A7%D9%84%D9%85%D8%B7%D8%B1-%D8%AD%D9%8A%D9%86-%D9%8A%D9%83%D8%AA%D8%A8-%D8%A7%D9%84%D9%81%D9%82%D8%AF-%D8%A7%D8%B3%D9%85%D9%87-%D8%B9%D9%84%D9%89-%D8%B3%D9%85%D8%A7%D8%A1-%D8%A7%D9%84%D9%88%D8%B7%D9%86"
+    "publisher": "Executive Magazine",
+    "date": "01/12/2007",
+    "link": "https://www.executive-magazine.com/opinion/comment/who-will-you-be-with-this-holiday-season"
+  },
+  {
+    "title": "Our Role in Climate Change",
+    "author": "Rana Hanna",
+    "publisher": "Executive Magazine",
+    "date": "01/11/2007",
+    "link": "https://www.executive-magazine.com/opinion/comment/our-role-in-climate-change"
+  },
+  {
+    "title": "Buying a Home in Beirut",
+    "author": "Rana Hanna",
+    "publisher": "Executive Magazine",
+    "date": "01/08/2007",
+    "link": "https://www.executive-magazine.com/opinion/comment/buying-a-home-in-beirut"
+  },
+  {
+    "title": "Beirut on my mind",
+    "author": "Rana Hanna",
+    "publisher": "Executive Magazine",
+    "date": "01/06/2007",
+    "link": "https://www.executive-magazine.com/opinion/comment/beirut-on-my-mind"
+  },
+  {
+    "title": "The Blonde on the Billboard",
+    "author": "Rana Hanna",
+    "publisher": "Executive Magazine",
+    "date": "01/05/2007",
+    "link": "https://www.executive-magazine.com/opinion/comment/the-blonde-on-the-billboard"
+  },
+  {
+    "title": "Foreigners in their own country",
+    "author": "Rana Hanna",
+    "publisher": "Executive Magazine",
+    "date": "01/03/2007",
+    "link": "https://www.executive-magazine.com/opinion/comment/foreigners-in-their-own-country"
   }
 ]

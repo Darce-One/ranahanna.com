@@ -76,6 +76,14 @@ h2 { margin-bottom: 1.7rem; font-size: clamp(2.6rem, 5vw, 4.6rem); }
 .page-hero { max-width: 58rem; padding-block: clamp(5rem, 12vw, 10rem) clamp(3.5rem, 7vw, 6rem); }
 .page-hero h1 { max-width: 11em; margin-bottom: 1.5rem; }
 .page-hero > p:last-child, .contact-page > p:not(.eyebrow) { max-width: 37rem; color: var(--ink-soft); font-size: 1.15rem; }
+.press-hero { max-width: 70rem; display: grid; grid-template-columns: minmax(0, 1fr) minmax(14rem, 19rem); gap: clamp(3rem, 9vw, 8rem); align-items: center; }
+.press-hero__copy > p:last-child { max-width: 37rem; color: var(--ink-soft); font-size: 1.15rem; }
+.press-hero__portrait { margin: 0; }
+.press-hero__portrait img { aspect-ratio: 2 / 3; max-height: 28rem; object-position: center top; }
+.blog-hero { max-width: 70rem; display: grid; grid-template-columns: minmax(0, 1fr) minmax(18rem, .95fr); gap: clamp(3rem, 9vw, 8rem); align-items: center; }
+.blog-hero__copy > p:last-child { max-width: 37rem; color: var(--ink-soft); font-size: 1.15rem; }
+.blog-hero__image { margin: 0; }
+.blog-hero__image img { width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; object-position: center; }
 .about-page { display: grid; grid-template-columns: minmax(14rem, .7fr) minmax(0, 1fr); gap: clamp(3rem, 10vw, 9rem); align-items: start; padding-bottom: 8rem; }
 .about-page .about-intro { max-width: 34rem; }
 .prose { color: var(--ink-soft); }
@@ -160,6 +168,13 @@ h2 { margin-bottom: 1.7rem; font-size: clamp(2.6rem, 5vw, 4.6rem); }
   .about-page .portrait-frame img { aspect-ratio: 3 / 4; max-height: 25rem; object-fit: cover; object-position: center 18%; }
   .home-links { padding-bottom: 5rem; }
   .page-hero { padding-block: 4.5rem 3.5rem; }
+  .press-hero { grid-template-columns: 1fr; gap: 2.5rem; }
+  .press-hero__portrait { width: min(88%, 22rem); margin-inline: auto; }
+  .press-hero__portrait img { max-height: 25rem; }
+  .blog-hero { grid-template-columns: 1fr; gap: 2.5rem; }
+  .blog-hero__image { width: min(100%, 34rem); margin-inline: auto; padding: .65rem .65rem 1.15rem; }
+  .blog-hero__image::before { top: 1.35rem; right: -.75rem; bottom: -.75rem; left: 1.35rem; }
+  .blog-hero__image img { aspect-ratio: auto; object-fit: contain; }
   .about-page { padding-bottom: 5rem; }
   .reading { padding-block: 4rem 6rem; }
   .article-list a { gap: .75rem; }

@@ -1,3 +1,38 @@
+const siteScript = document.currentScript;
+const siteRoot = new URL('.', siteScript.src);
+const navigationLinks = [
+  ['index.html', 'Home'],
+  ['pages/books.html', 'Books'],
+  ['pages/press.html', 'In the Press'],
+  ['pages/blog.html', 'Blog'],
+  ['pages/about.html', 'About'],
+  ['pages/contact.html', 'Contact'],
+];
+
+const normalizePath = (url) => {
+  const path = new URL(url).pathname;
+  return path.endsWith('/') ? `${path}index.html` : path;
+};
+
+const currentPath = normalizePath(window.location.href);
+const homeUrl = new URL('index.html', siteRoot);
+const header = document.querySelector('[data-site-header]');
+const footer = document.querySelector('[data-site-footer]');
+
+if (header) {
+  const links = navigationLinks.map(([path, label]) => {
+    const href = new URL(path, siteRoot);
+    const current = normalizePath(href.href) === currentPath ? ' aria-current="page"' : '';
+    return `<a href="${href.href}"${current}>${label}</a>`;
+  }).join('');
+
+  header.innerHTML = `<a class="wordmark" href="${homeUrl.href}" aria-label="Rana Hanna home">Rana Hanna<span>.</span></a><button class="menu-button" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="site-nav"><span aria-hidden="true"></span><span aria-hidden="true"></span></button><nav id="site-nav" class="site-nav" aria-label="Main navigation">${links}</nav>`;
+}
+
+if (footer) {
+  footer.innerHTML = `<a class="wordmark" href="${homeUrl.href}">Rana Hanna<span>.</span></a><nav class="footer-social" aria-label="Rana Hanna on social media"><a href="https://x.com/rhanna5" target="_blank" rel="noreferrer" aria-label="Follow Rana Hanna on X, formerly Twitter"><i class="fa fa-twitter" aria-hidden="true"></i><span class="sr-only">X / Twitter</span></a><a href="https://www.linkedin.com/in/rana-hanna-997a145/" target="_blank" rel="noreferrer" aria-label="Connect with Rana Hanna on LinkedIn"><i class="fa fa-linkedin" aria-hidden="true"></i><span class="sr-only">LinkedIn</span></a><a href="https://www.instagram.com/ranahanna5/" target="_blank" rel="noreferrer" aria-label="Follow Rana Hanna on Instagram"><i class="fa fa-instagram" aria-hidden="true"></i><span class="sr-only">Instagram</span></a></nav><p>© <span id="year"></span> Rana Hanna. All rights reserved.</p>`;
+}
+
 // The only interactive behavior: a keyboard-accessible menu on smaller screens.
 const menuButton = document.querySelector('.menu-button');
 const navigation = document.querySelector('.site-nav');
