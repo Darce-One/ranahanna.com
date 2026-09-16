@@ -145,13 +145,14 @@ function postPage({ title, subtitle, thumbnail, thumbnailCredit, date, body }) {
   <head>
     <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="${escapeHtml(title)} — a post by Rana Hanna." /><title>${safeTitle} — Rana Hanna</title>
-    <link rel="stylesheet" href="../../styles.css" />
+    <link rel="stylesheet" href="../../styles.css?v=footer-social" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header"><a class="wordmark" href="../../index.html" aria-label="Rana Hanna home">Rana Hanna<span>.</span></a><button class="menu-button" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="site-nav"><span aria-hidden="true"></span><span aria-hidden="true"></span></button><nav id="site-nav" class="site-nav" aria-label="Main navigation"><a href="../../index.html">Home</a><a href="../birdsintherain.html">Books</a><a href="../press.html">In the Press</a><a href="../blog.html" aria-current="page">Blog</a><a href="../about.html">About</a><a href="../contact.html">Contact</a></nav></header>
     <main id="main"><article class="post section-shell"><header class="post-header${subtitle ? ' post-header--with-subtitle' : ''}"><p class="eyebrow">Blog</p><h1>${safeTitle}</h1>${subtitleMarkup}<p class="post-date">${escapeHtml(displayDate(date))}</p></header><div class="post-body">${thumbnailMarkup}${renderMarkdown(body)}</div><a class="back-link" href="../blog.html">← All posts</a></article></main>
-    <footer class="site-footer section-shell"><a class="wordmark" href="../../index.html">Rana Hanna<span>.</span></a><p>© <span id="year"></span> Rana Hanna. All rights reserved.</p></footer><script src="../../script.js"></script>
+    <footer class="site-footer section-shell"><a class="wordmark" href="../../index.html">Rana Hanna<span>.</span></a><nav class="footer-social" aria-label="Rana Hanna on social media"><a href="https://x.com/rhanna5" target="_blank" rel="noreferrer" aria-label="Follow Rana Hanna on X, formerly Twitter"><i class="fa fa-twitter" aria-hidden="true"></i><span class="sr-only">X / Twitter</span></a><a href="https://www.linkedin.com/in/rana-hanna-997a145/" target="_blank" rel="noreferrer" aria-label="Connect with Rana Hanna on LinkedIn"><i class="fa fa-linkedin" aria-hidden="true"></i><span class="sr-only">LinkedIn</span></a><a href="https://www.instagram.com/ranahanna5/" target="_blank" rel="noreferrer" aria-label="Follow Rana Hanna on Instagram"><i class="fa fa-instagram" aria-hidden="true"></i><span class="sr-only">Instagram</span></a></nav><p>© <span id="year"></span> Rana Hanna. All rights reserved.</p></footer><script src="../../script.js"></script>
   </body>
 </html>`;
 }
